@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced iFrame Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: white;
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 250px;
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(15px);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .sidebar button {
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.2);
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .sidebar button:hover {
+        background: rgba(255,255,255,0.4);
+        transform: scale(1.05);
+    }
+
+    /* Main Content */
+    .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .header {
+        background: rgba(255,255,255,0.1);
+        padding: 15px;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .iframe-container {
+        flex: 1;
+        border-radius: 15px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    /* Footer */
+    .footer {
+        text-align: center;
+        font-size: 14px;
+        opacity: 0.8;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>🌐 Dashboard</h2>
+    
+    <button onclick="loadPage('map')">📍 Map View</button>
+    <button onclick="loadPage('google')">🔍 Google</button>
+    <button onclick="loadPage('youtube')">🎥 YouTube</button>
+    <button onclick="loadPage('news')">📰 News</button>
+</div>
+
+<div class="main">
+    <div class="header">Advanced iFrame Web App</div>
+
+    <div class="iframe-container">
+        <iframe id="frame" src="https://www.wikipedia.org"></iframe>
+    </div>
+
+    <div class="footer">Made with HTML + iFrames + Modern UI ✨</div>
+</div>
+
+<script>
+function loadPage(type) {
+    const frame = document.getElementById('frame');
+
+    if (type === 'map') {
+        frame.src = "https://maps.google.com/maps?q=Nagpur&output=embed";
+    } 
+    else if (type === 'google') {
+        frame.src = "https://www.google.com";
+    } 
+    else if (type === 'youtube') {
+        frame.src = "https://www.youtube.com";
+    } 
+    else if (type === 'news') {
+        frame.src = "https://news.google.com";
+    }
+}
+</script>
+
+</body>
+</html>
